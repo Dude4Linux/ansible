@@ -1,0 +1,15 @@
+#!/bin/bash -ex
+# example download source script
+
+dl() {
+      [ "$FAB_HTTP_PROXY" ] && PROXY="--proxy $FAB_HTTP_PROXY"
+          cd $2; curl -L -f -O $PROXY $1; cd -
+}
+
+SRC="/usr/local/src"
+PROJECT="project_name"
+VERSION="x.x.x"
+URL="http://sourceforge.net/projects/${PROJECT}/files/${VERSION}"
+
+# Uncomment the following to activate download
+#dl $URL $SRC

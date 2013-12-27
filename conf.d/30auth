@@ -1,0 +1,8 @@
+#!/bin/bash -ex
+
+ANSIBLE_USER=ansible
+ANSIBLE_PASS=turnkey
+
+# create ansible user
+adduser --disabled-login --gecos 'ansible user' $ANSIBLE_USER
+echo $ANSIBLE_USER:$ANSIBLE_PASS | chpasswd

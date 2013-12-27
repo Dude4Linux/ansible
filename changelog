@@ -1,0 +1,26 @@
+ * Appliance name
+   - turnkey-#MyApp#
+ **************************************
+
+ * Changes start here *****************
+ * Initial release of #MyApp# for TKLdev
+
+ * #MyApp# Appliance:
+   * Description or Purpose
+   - Briefly describe what the appliance does
+
+   * List of appliances included in plan/main
+   - turnkey-core
+   - 
+   - 
+   * Additional Debian packages included in plan/main
+   - 
+   - 
+   - Any special notes about appliance
+   - 
+   - 
+
+ * Note: Please refer to turnkey-core's changelog for changes common to all
+   appliances. Here we only describe changes specific to this appliance.
+
+-- #Author# <#email#>  #date#

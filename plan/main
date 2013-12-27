@@ -1,0 +1,14 @@
+/* Include turnkey base and other appliances below */
+#include <turnkey/base>
+
+/* Add required Debian packages one per line below */
+libyaml-0-2         /* packages needed for yaml parsing */
+libyaml-dev
+python-yaml
+python-jinja2       /* small but fast and easy to use stand-alone template engine */
+python-paramiko     /* Make ssh v2 connections with Python */
+python-markupsafe   /* XML/HTML/XHTML Markup safe string for Python */
+/* python-pip           python module installer */
+python-simplejson   /* required by python versions before 2.5 */
+make                /* required to install ansible from source */
+/* gcc                  required to compile yaml */

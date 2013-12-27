@@ -1,0 +1,11 @@
+#!/bin/bash -e
+# setup ansible password & ssh key
+
+ANSIBLE_USER=ansible
+
+. /etc/default/inithooks
+
+[ -e $INITHOOKS_CONF ] && . $INITHOOKS_CONF
+$INITHOOKS_PATH/bin/setpass.py $ANSIBLE_USER --pass="$APP_PASS"
+
+ssh-keygen -q -f "/home/$ANSIBLE_USER/.ssh/id_rsa" -N "$APP_PASS" -t rsa
