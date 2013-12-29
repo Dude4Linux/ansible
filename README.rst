@@ -25,6 +25,10 @@ Additional Features
 Documentation
 -------------
 - See the latest documentation at http://www.ansibleworks.com/docs/
+- https://github.com/ansible
+- http://jpmens.net/2012/06/06/configuration-management-with-ansible/
+- http://devopsu.com/guides/ansible-ubuntu-debian.html
+- https://github.com/fourkitchens/server-playbooks
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------
