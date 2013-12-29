@@ -8,7 +8,5 @@ python-yaml
 python-jinja2       /* small but fast and easy to use stand-alone template engine */
 python-paramiko     /* Make ssh v2 connections with Python */
 python-markupsafe   /* XML/HTML/XHTML Markup safe string for Python */
-/* python-pip           python module installer */
 python-simplejson   /* required by python versions before 2.5 */
 make                /* required to install ansible from source */
-/* gcc                  required to compile yaml */

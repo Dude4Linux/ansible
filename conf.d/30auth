@@ -3,6 +3,6 @@
 ANSIBLE_USER=ansible
 ANSIBLE_PASS=turnkey
 
-# create ansible user
+# create ansible user with default password
 adduser --disabled-login --gecos 'ansible user' $ANSIBLE_USER
 echo $ANSIBLE_USER:$ANSIBLE_PASS | chpasswd

@@ -1,14 +1,14 @@
 #!/bin/sh -ex
 # main installation script
 
-# pip install PyYAML jinja2 paramiko
-
-# install ansible
+# install ansible source from github.com
 cd /opt
 git clone https://github.com/ansible/ansible.git
 cd ansible
 
+# select latest stable release
 git checkout $( git tag | tail -1 )
 
+# install it
 make install
 

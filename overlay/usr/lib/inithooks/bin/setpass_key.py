@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # Copyright (c) 2010 Alon Swartz <alon@turnkeylinux.org>
 # Added ssh keygen using same password. 2013 John Carver <dude4linux@gmail.com>
+#
 """Set account password and generate ssh key
 
 Arguments:
@@ -64,6 +65,7 @@ def main():
     if err:
         fatal(err)
 
+    """use ssh-keygen to create an rsa key pair using the same password"""
     subprocess.call(['su', username, '-c', 'ssh-keygen -q -b 4096 -t rsa -f $HOME/.ssh/id_rsa -N %s' % password])
     if err:
         fatal(err)
