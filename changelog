@@ -1,8 +1,10 @@
 turnkey-ansible-13.0 (1) turnkey; urgency=low
 
  * Ansible Appliance:
-..   Description or Purpose
-   - Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.
+
+   - Ansible is an IT automation tool. It can configure systems, deploy software,
+     and orchestrate more advanced IT tasks such as continuous deployments
+     or zero downtime rolling updates.
 
    - Latest stable version of Ansible is installed via git at build time.
    - No server or client daemons; uses existing SSHd
