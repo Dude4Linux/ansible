@@ -1,26 +1,20 @@
- * Appliance name
-   - turnkey-#MyApp#
- **************************************
+turnkey-ansible-13.0 (1) turnkey; urgency=low
 
- * Changes start here *****************
- * Initial release of #MyApp# for TKLdev
+ * Ansible Appliance:
+..   Description or Purpose
+   - Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.
 
- * #MyApp# Appliance:
-   * Description or Purpose
-   - Briefly describe what the appliance does
-
-   * List of appliances included in plan/main
-   - turnkey-core
-   - 
-   - 
-   * Additional Debian packages included in plan/main
-   - 
-   - 
-   - Any special notes about appliance
-   - 
-   - 
+   - Latest stable version of Ansible is installed via git at build time.
+   - No server or client daemons; uses existing SSHd
+   - No additional software required on clients
+   - Modules can be written in ANY language
+   - Does not require root privledges
+   
+   * Special notes about TurnKey Ansible appliance
+   - Login as user 'ansible' to run Ansible
+   - Login as user 'root' to manage server
 
  * Note: Please refer to turnkey-core's changelog for changes common to all
    appliances. Here we only describe changes specific to this appliance.
 
--- #Author# <#email#>  #date#
+ -- John Carver <dude4linux@gmail.com>  Sat, 28 Dec 2013 03:31:33 +0000
