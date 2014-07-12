@@ -1,4 +1,9 @@
-turnkey-ansible-13.0-beta1 (1) turnkey; urgency=low
+turnkey-ansible-13.1-beta2 (1) turnkey; urgency=low
+
+   - Updated to Ansible 1.6.6
+   - Added python-setuptools now required by Ansible
+
+ -- John Carver <dude4linux@gmail.com>  Sat Jul 12 17:58:48 UTC 2014
 
  * Ansible Appliance:
 
@@ -16,7 +21,10 @@ turnkey-ansible-13.0-beta1 (1) turnkey; urgency=low
    - Login as user 'ansible' to run Ansible
    - Login as user 'root' to manage server
 
- * Note: Please refer to turnkey-core's changelog for changes common to all
-   appliances. Here we only describe changes specific to this appliance.
+ * Please refer to turnkey-core's changelog for changes common to all
+    appliances, as well as the following git logs:
+    
+    - https://github.com/turnkeylinux/common
+    - https://github.com/turnkeylinux-apps/drupal7
 
  -- John Carver <dude4linux@gmail.com>  Sun, 29 Dec 2013 16:50:01 -0600
