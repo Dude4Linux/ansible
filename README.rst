@@ -18,7 +18,7 @@ Additional Features
 -------------------
 .. Add or remove additional features from the list below
 
-- Latest stable release of Ansible (currently v1.4.3)
+- Latest stable release of Ansible (currently v1.6.6)
 - SSL support out of the box.
 - Webmin modules for managing and configuring server.
 
