@@ -6,3 +6,6 @@ ANSIBLE_PASS=turnkey
 # create ansible user with default password
 adduser --disabled-login --gecos 'ansible user' $ANSIBLE_USER
 echo $ANSIBLE_USER:$ANSIBLE_PASS | chpasswd
+
+# give ansible user sudo privileges
+usermod -a -G sudo $ANSIBLE_USER

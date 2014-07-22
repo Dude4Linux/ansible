@@ -2,6 +2,7 @@ turnkey-ansible-13.1-beta2 (1) turnkey; urgency=low
 
    - Updated to Ansible 1.6.6
    - Added python-setuptools now required by Ansible
+   - Added sudo privileges for user 'ansible'
 
  -- John Carver <dude4linux@gmail.com>  Sat Jul 12 17:58:48 UTC 2014
 

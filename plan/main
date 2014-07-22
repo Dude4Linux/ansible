@@ -11,3 +11,4 @@ python-markupsafe   /* XML/HTML/XHTML Markup safe string for Python */
 python-simplejson   /* required by python versions before 2.5 */
 python-setuptools   /* required by ansible 1.6.6 */
 make                /* required to install ansible from source */
+sudo                /* required to give ansible user root privileges */
