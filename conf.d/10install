@@ -3,3 +3,18 @@
 
 # install ansible via "pip", the Python package manager
 pip install ansible
+
+# create default ansible hosts
+mv /etc/ansible/hosts /etc/ansible/hosts.example
+
+cat > /etc/ansible/hosts << _EOF_
+# Ansible hosts
+# See /etc/ansible/hosts.example or
+# the on-line documentation at http://docs.ansible.com/intro_inventory.html
+# for information on how to configure this file.
+
+ansible_ssh_user=root
+ansible               ansible_connection=local
+
+_EOF_
+
