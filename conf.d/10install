@@ -1,14 +1,5 @@
 #!/bin/sh -ex
 # main installation script
 
-# install ansible source from github.com
-cd /opt
-git clone https://github.com/ansible/ansible.git
-cd ansible
-
-# select latest stable release
-git checkout $( git tag | tail -1 )
-
-# install it
-make install
-
+# install ansible via "pip", the Python package manager
+pip install ansible

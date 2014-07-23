@@ -9,6 +9,9 @@ python-jinja2       /* small but fast and easy to use stand-alone template engin
 python-paramiko     /* Make ssh v2 connections with Python */
 python-markupsafe   /* XML/HTML/XHTML Markup safe string for Python */
 python-simplejson   /* required by python versions before 2.5 */
-python-setuptools   /* required by ansible 1.6.6 */
-make                /* required to install ansible from source */
+python-crypto       /* required by ansible */
+python-setuptools   /* required by newer versions of ansible */
+python-pip          /* required to install ansible from python package */
+python-dev          /* required to compile pyCrypto from source */
+gcc                 /* required to compile pyCrypto from source */
 sudo                /* required to give ansible user root privileges */
