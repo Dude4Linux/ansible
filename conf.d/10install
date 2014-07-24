@@ -13,8 +13,15 @@ cat > /etc/ansible/hosts << _EOF_
 # the on-line documentation at http://docs.ansible.com/intro_inventory.html
 # for information on how to configure this file.
 
-ansible_ssh_user=root
 ansible               ansible_connection=local
+
+_EOF_
+
+# create default ansible config
+cat > /etc/ansible/ansible.cfg << _EOF_
+[defaults]
+host_key_checking = False
+remote_user = root
 
 _EOF_
 
