@@ -23,6 +23,11 @@ Additional Features
 - SSL support out of the box.
 - Webmin modules for managing and configuring server.
 
+Usage
+-----
+
+For examples of how to use the Ansible appliance, see :doc:`USAGE.rst`.
+
 Documentation
 -------------
 - See the latest documentation at http://docs.ansible.com
