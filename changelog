@@ -1,10 +1,10 @@
-turnkey-ansible-13.1-beta3 (1) turnkey; urgency=low
+turnkey-ansible-13.1-rc1 (1) turnkey; urgency=low
 
    - Updated to Ansible 1.6.8
    - Added sudo privileges for user 'ansible'
    - Install Ansible using Python package manager, pip
 
- -- John Carver <dude4linux@gmail.com>  Wed Jul 23 16:09:13 UTC 2014
+ -- John Carver <dude4linux@gmail.com>  Sat Jul 26 01:48:51 UTC 2014
 
 turnkey-ansible-13.0-beta2 (1) turnkey; urgency=low
 
