@@ -18,13 +18,19 @@ Additional Features
 -------------------
 .. Add or remove additional features from the list below
 
-- Latest stable release of Ansible (currently v1.6.6)
+- Latest stable release of Ansible (currently v1.6.xx)
+- Sudo support for the ansible user.
 - SSL support out of the box.
 - Webmin modules for managing and configuring server.
 
+Usage
+-----
+
+For examples of how to use the Ansible appliance, see :doc:`USAGE.rst`.
+
 Documentation
 -------------
-- See the latest documentation at http://www.ansibleworks.com/docs/
+- See the latest documentation at http://docs.ansible.com
 - https://github.com/ansible
 - http://jpmens.net/2012/06/06/configuration-management-with-ansible/
 - http://devopsu.com/guides/ansible-ubuntu-debian.html
@@ -38,5 +44,5 @@ Credentials *(passwords set at first boot)*
 
 .. Edit above to remove references to MySQL, phpMyAdmin, etc if not used in your appliance.  Add a line for additional application credentials, if any, set at first boot.
 
-.. _Ansible: http://ansibleworks.com/docs/
+.. _Ansible: http://docs.ansible.com
 .. _TurnKey Core: http://www.turnkeylinux.org/core

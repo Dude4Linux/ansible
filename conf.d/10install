@@ -1,14 +1,27 @@
 #!/bin/sh -ex
 # main installation script
 
-# install ansible source from github.com
-cd /opt
-git clone https://github.com/ansible/ansible.git
-cd ansible
+# install ansible via "pip", the Python package manager
+pip install ansible
 
-# select latest stable release
-git checkout $( git tag | tail -1 )
+# create default ansible hosts
+mv /etc/ansible/hosts /etc/ansible/hosts.example
 
-# install it
-make install
+cat > /etc/ansible/hosts << _EOF_
+# Ansible hosts
+# See /etc/ansible/hosts.example or
+# the on-line documentation at http://docs.ansible.com/intro_inventory.html
+# for information on how to configure this file.
+
+ansible               ansible_connection=local
+
+_EOF_
+
+# create default ansible config
+cat > /etc/ansible/ansible.cfg << _EOF_
+[defaults]
+host_key_checking = False
+remote_user = root
+
+_EOF_
 
