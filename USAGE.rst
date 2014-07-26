@@ -24,10 +24,19 @@ Login as the ansible user.  You should be able to execute some simple commands
 
 The second command should return a JSON formated list of 'facts' gathered from the localhost.
 
+Terminology
+-----------
+
+- Playbooks     A playbook is composed of one or more plays in a list. Playbooks are expressed in YAML format.
+- Plays         Map a group of hosts to well defined roles represented by a list of tasks.
+- Roles         Unit of organization for hosts implementing a specific behavior e.g. webserver.
+- Tasks         Call to a module to effect pre-defined changes of state.
+- Modules       Gather facts or control system resources like services, packages, or files to effect a change in system state.
+
 Summary of Commands
 -------------------
 
-- ansible              run ansible play on a host or group of hosts
+- ansible              run ad-hoc task or play on a host or group of hosts
 - ansible-playbook     run a series of plays or tasks on a host or group of hosts
 - ansible-pull         run ansible from the client host in pull mode
 - ansible-doc          display help for ansible plays
