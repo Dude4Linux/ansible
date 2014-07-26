@@ -1,5 +1,5 @@
 Ansible - An IT automation tool
-=================================
+===============================
 
 `Ansible`_ is an open source application licensed under the GPL.
     GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007
@@ -12,7 +12,7 @@ Ansible is an IT automation tool. It can configure systems, deploy software,
 and orchestrate more advanced IT tasks such as continuous deployments
 or zero downtime rolling updates.
 
-This appliance includes all the standard features in `TurnKey Core`_,:
+This appliance includes all the standard features in `TurnKey Core`_.
 
 Additional Features
 -------------------
@@ -26,7 +26,7 @@ Additional Features
 Usage
 -----
 
-For examples of how to use the Ansible appliance, see :doc:`USAGE.rst`.
+For examples of how to use the Ansible appliance, see `Usage`_.
 
 Documentation
 -------------
@@ -44,5 +44,6 @@ Credentials *(passwords set at first boot)*
 
 .. Edit above to remove references to MySQL, phpMyAdmin, etc if not used in your appliance.  Add a line for additional application credentials, if any, set at first boot.
 
+.. _Usage: USAGE.rst
 .. _Ansible: http://docs.ansible.com
 .. _TurnKey Core: http://www.turnkeylinux.org/core

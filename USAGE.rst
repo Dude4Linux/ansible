@@ -8,7 +8,9 @@ or zero downtime rolling updates.
 Quick Start
 -----------
 
-Login as the ansible user.  You should be able to execute some simple commands
+Login as the ansible user.  You should be able to execute some simple commands.
+
+::
 
     ansible localhost -m ping
     localhost | success >> {
@@ -27,6 +29,8 @@ The second command should return a JSON formated list of 'facts' gathered from t
 Terminology
 -----------
 
+::
+
 - Playbooks     A playbook is composed of one or more plays in a list. Playbooks are expressed in YAML format.
 - Plays         Map a group of hosts to well defined roles represented by a list of tasks.
 - Roles         Unit of organization for hosts implementing a specific behavior e.g. webserver.
@@ -35,6 +39,8 @@ Terminology
 
 Summary of Commands
 -------------------
+
+::
 
 - ansible              run ad-hoc task or play on a host or group of hosts
 - ansible-playbook     run a series of plays or tasks on a host or group of hosts
@@ -52,6 +58,8 @@ By default, Ansible will connect to the remote host as user=root. If you want to
 
 Now you should be able to run 'ping' on a remote host or group using a password.
 
+::
+
     ansible remotehost -k -m ping
     SSH password: 
     remotehost | success >> {
@@ -66,6 +74,8 @@ Using and managing passwords for many hosts can be problematic and doing it secu
 
 Login to the ansible account and copy the public key to all of the managed hosts.
 
+::
+
     ssh-copy-id root@remotehost
     root@remotehost's password: 
     Now try logging into the machine, with "ssh 'root@remotehost'", and check in:
@@ -76,6 +86,8 @@ Login to the ansible account and copy the public key to all of the managed hosts
 
 
 You should now be able to run plays and playbooks without needing to prompt for the password.
+
+::
 
     ansible remotehost -m ping
     remotehost | success >> {
