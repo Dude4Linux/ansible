@@ -1,6 +1,6 @@
 turnkey-ansible-13.1-rc1 (1) turnkey; urgency=low
 
-   - Updated to Ansible 1.6.8
+   - Updated to latest Ansible version 1.6.xx
    - Added sudo privileges for user 'ansible'
    - Install Ansible using Python package manager, pip
 
