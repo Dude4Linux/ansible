@@ -1,3 +1,9 @@
+turnkey-ansible-13.1-rc2 (1) turnkey; urgency=low
+
+   - Updated to latest Ansible version 1.7.1
+
+ -- John Carver <dude4linux@gmail.com>  Thu Sep 11 16:34:51 UTC 2014
+
 turnkey-ansible-13.1-rc1 (1) turnkey; urgency=low
 
    - Updated to latest Ansible version 1.6.xx
