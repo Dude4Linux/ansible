@@ -1,8 +1,12 @@
 #!/bin/sh -ex
 # main installation script
 
-# install ansible via "pip", the Python package manager
-pip install ansible
+# install ansible PPA key
+gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /tmp/tmp.lof5xjVSgt --trustdb-name /etc/apt//trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-jessie-automatic.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-jessie-security-automatic.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-jessie-stable.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-squeeze-automatic.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-squeeze-stable.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-wheezy-automatic.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-wheezy-stable.gpg --keyring /etc/apt/trusted.gpg.d//debian.gpg --keyring /etc/apt/trusted.gpg.d//turnkey.gpg --keyserver hkp://keyserver.ubuntu.com:80/ --recv 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
+
+# install ansible
+apt-get update
+apt-get -y install ansible
 
 # create default ansible hosts
 mv /etc/ansible/hosts /etc/ansible/hosts.example
@@ -17,11 +21,8 @@ ansible               ansible_connection=local
 
 _EOF_
 
-# create default ansible config
-cat > /etc/ansible/ansible.cfg << _EOF_
-[defaults]
-host_key_checking = False
-remote_user = root
-
-_EOF_
-
+# update ansible config
+sed -i \
+-e 's/#host_key_checking/host_key_checking/g' \
+-e 's/#remote_user/remote_user/g' \
+/etc/ansible/ansible.cfg
