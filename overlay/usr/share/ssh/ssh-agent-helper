@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# File: ~/.bashrc.d/ssh-agent-helper
+#
+# Checks authentication environment.
+# If the ssh-agent is not running, starts a new one.
+# 
+
+HOSTS=$HOME/.ssh/known_hosts
+SSH_ENV=$HOME/.ssh/env-$HOSTNAME
+
+# Initialize new agent and add authentication
+function start_agent {
+  # Start authenticating daemon
+  # No authentications set up yet, just starting daemon!
+  ssh-agent | head -2 > ${SSH_ENV}
+  chmod 600 ${SSH_ENV}
+
+  # Find SSH_AUTH_SOCK and SSH_AGENT_PID of the available daemon
+  . ${SSH_ENV} > /dev/null
+
+  # Add authentication to this and only this daemon
+  echo "Starting ssh-agent for $USER on $HOSTNAME:"
+  ssh-add $HOME/.ssh/id_rsa
+}
+
+if [ -f "$SSH_ENV" ]; then
+  # Find SSH_AUTH_SOCK and SSH_AGENT_PID of the available daemon
+  . ${SSH_ENV} > /dev/null
+
+  # Check if the agent is still running
+  [[ $(ps -p ${SSH_AGENT_PID} -o comm=) != "ssh-agent" ]] && start_agent;
+
+else
+  start_agent;    
+fi
+
+# Clean localhost entry in the known host file
+sed -i '/localhost/ d' $HOSTS
+
