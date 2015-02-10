@@ -11,8 +11,5 @@ python-markupsafe   /* XML/HTML/XHTML Markup safe string for Python */
 python-simplejson   /* required by python versions before 2.5 */
 python-crypto       /* required by ansible */
 python-setuptools   /* required by newer versions of ansible */
-python-pip          /* required to install ansible from python package */
-python-dev          /* required to compile pyCrypto from source */
-gcc                 /* required to compile pyCrypto from source */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */

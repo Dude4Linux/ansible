@@ -9,3 +9,6 @@ echo $ANSIBLE_USER:$ANSIBLE_PASS | chpasswd
 
 # give ansible user sudo privileges
 usermod -a -G sudo $ANSIBLE_USER
+
+# add ssh-agent-helper to ~/.bashrc.d
+ln -s /usr/share/ssh/ssh-agent-helper /home/$ANSIBLE_USER/.bashrc.d/
