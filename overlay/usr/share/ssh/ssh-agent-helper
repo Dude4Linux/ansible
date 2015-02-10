@@ -34,7 +34,3 @@ if [ -f "$SSH_ENV" ]; then
 else
   start_agent;    
 fi
-
-# Clean localhost entry in the known host file
-sed -i '/localhost/ d' $HOSTS
-
