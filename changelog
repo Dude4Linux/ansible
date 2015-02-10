@@ -1,3 +1,13 @@
+turnkey-ansible-13.1-rc3 (1) turnkey; urgency=low
+
+   - Updated to latest Ansible version 1.8.2
+	 - Install Ansible from Ubuntu PPA; removed Python pip
+	 - Added ssh-agent-helper to prime ssh-agent with ansible's password
+	 - Added ansible ssh key to root's authorized_keys
+	 - Granted ansible passwordless sudo
+
+ -- John Carver <dude4linux@gmail.com>  Tue Feb 10 18:36:32 UTC 2015
+
 turnkey-ansible-13.1-rc2 (1) turnkey; urgency=low
 
    - Updated to latest Ansible version 1.7.1

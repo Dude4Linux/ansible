@@ -18,7 +18,7 @@ Additional Features
 -------------------
 .. Add or remove additional features from the list below
 
-- Latest stable release of Ansible (currently v1.7.1)
+- Latest stable release of Ansible (currently v1.8.2)
 - Sudo support for the ansible user.
 - SSL support out of the box.
 - Webmin modules for managing and configuring server.
