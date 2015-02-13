@@ -1,6 +1,10 @@
 #!/bin/sh -ex
 # main installation script
 
+# install Python pip
+# note: installing pip via Debian apt resulted in the installation of an older version of Python, so we use easy_install instead
+easy_install pip
+
 # install ansible PPA key
 gpg --ignore-time-conflict --no-options --no-default-keyring --secret-keyring /tmp/tmp.lof5xjVSgt --trustdb-name /etc/apt//trustdb.gpg --keyring /etc/apt/trusted.gpg --primary-keyring /etc/apt/trusted.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-jessie-automatic.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-jessie-security-automatic.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-jessie-stable.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-squeeze-automatic.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-squeeze-stable.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-wheezy-automatic.gpg --keyring /etc/apt/trusted.gpg.d//debian-archive-wheezy-stable.gpg --keyring /etc/apt/trusted.gpg.d//debian.gpg --keyring /etc/apt/trusted.gpg.d//turnkey.gpg --keyserver hkp://keyserver.ubuntu.com:80/ --recv 6125E2A8C77F2818FB7BD15B93C4A3FD7BB9C367
 

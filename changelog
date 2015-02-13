@@ -1,3 +1,10 @@
+turnkey-ansible-13.1-rc3.0.1 (1) turnkey; urgency=low
+
+   - Restored Python pip needed to run certain Ansible plays
+	 - Can't use pip to update Ansible when installed from Ubuntu PPA
+
+ -- John Carver <dude4linux@gmail.com>  Fri Feb 13 17:31:39 UTC 2015
+
 turnkey-ansible-13.1-rc3 (1) turnkey; urgency=low
 
    - Updated to latest Ansible version 1.8.2
