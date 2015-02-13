@@ -100,7 +100,8 @@ if [[ $secure_only == "true" ]]; then
 else
   apt-get update
   apt-get upgrade -y
-  pip install ansible
+  # can't use pip to update ansible when it was installed by apt
+	#pip install ansible
 fi
 
 graceful_exit
