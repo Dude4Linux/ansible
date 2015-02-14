@@ -22,7 +22,7 @@
 # ---------------------------------------------------------------------------
 
 PROGNAME=${0##*/}
-VERSION="0.1"
+VERSION="0.2"
 
 clean_up() { # Perform pre-exit housekeeping
   return
@@ -61,7 +61,7 @@ help_message() {
   Options:
     -h, --help          Display this help message and exit.
     -a, --all           Apply all updates
-		-s, --secure        Apply only security updates (default)
+    -s, --secure        Apply only security updates (default)
 
   NOTE: You must be the superuser to run this script.
 
@@ -72,11 +72,6 @@ _EOF_
 # Trap signals
 trap "signal_exit TERM" TERM HUP
 trap "signal_exit INT"  INT
-
-# Check for root UID
-if [[ $(id -u) != 0 ]]; then
-  error_exit "You must be the superuser to run this script."
-fi
 
 all="false";
 
@@ -93,6 +88,11 @@ while [[ -n $1 ]]; do
 done
 
 # Main logic
+
+# Check for root UID
+if [[ $(id -u) != 0 ]]; then
+  error_exit "You must be the superuser to run this script."
+fi
 
 if [[ $all == "false" ]]; then
   export SEC_UPDATES="FORCE";
