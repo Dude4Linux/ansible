@@ -61,7 +61,7 @@ help_message() {
   Options:
     -h, --help          Display this help message and exit.
     -a, --all           Apply all updates
-    -s, --secure        Apply only security updates
+		-s, --secure        Apply only security updates (default)
 
   NOTE: You must be the superuser to run this script.
 
@@ -78,14 +78,14 @@ if [[ $(id -u) != 0 ]]; then
   error_exit "You must be the superuser to run this script."
 fi
 
-secure_only="false";
+all="false";
 
 # Parse command-line
 while [[ -n $1 ]]; do
   case $1 in
     -h | --help)        help_message; graceful_exit ;;
-    -a | --all)         echo "Apply all updates" ;;
-    -s | --secure)      echo "Apply only security updates"; secure_only="true" ;;
+    -a | --all)         echo "Apply all updates"; all="true" ;;
+    -s | --secure)      echo "Apply only security updates" ;;
     -* | --*)           usage; error_exit "Unknown option $1" ;;
     *)                  echo "Argument $1 to process..." ;;
   esac
@@ -94,7 +94,7 @@ done
 
 # Main logic
 
-if [[ $secure_only == "true" ]]; then
+if [[ $all == "false" ]]; then
   export SEC_UPDATES="FORCE";
   /usr/lib/inithooks/firstboot.d/95secupdates
 else
