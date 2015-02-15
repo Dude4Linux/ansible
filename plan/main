@@ -11,3 +11,4 @@ python-apt          /* allows ansible to manage apt packages */
 python-setuptools   /* required for installing pip */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */
+keychain            /* manages ssh-agent keys for ansible */
