@@ -5,5 +5,5 @@
 easy_install pip
 
 # install ansible
-pip install ansible
+pip install ansible --upgrade
 
