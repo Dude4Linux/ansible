@@ -19,10 +19,14 @@
 
 # Revision history:
 # 2014-07-23 Created by new_script ver. 3.0
+# 2015-02-14 Display help even if not root
+# 2015-02-15 Generalized to run scripts in /etc/turnkey/update.d/
 # ---------------------------------------------------------------------------
 
 PROGNAME=${0##*/}
-VERSION="0.2"
+VERSION="0.3"
+
+UPDATE_DIR="/etc/turnkey/update.d"
 
 clean_up() { # Perform pre-exit housekeeping
   return
@@ -98,9 +102,11 @@ if [[ $all == "false" ]]; then
   export SEC_UPDATES="FORCE";
   /usr/lib/inithooks/firstboot.d/95secupdates
 else
-  apt-get update
-  apt-get upgrade -y
-  pip install ansible --upgrade
+  apt-get update  -qq
+  apt-get upgrade -qy
+  if [[ -d $UPDATE_DIR ]]; then
+    run-parts --lsbsysinit $UPDATE_DIR
+  fi
 fi
 
 graceful_exit
