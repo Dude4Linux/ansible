@@ -4,12 +4,11 @@
 /* Add required Debian packages one per line below */
 libyaml-0-2         /* packages needed for yaml parsing */
 libyaml-dev
-python-yaml
-python-jinja2       /* small but fast and easy to use stand-alone template engine */
-python-paramiko     /* Make ssh v2 connections with Python */
-python-markupsafe   /* XML/HTML/XHTML Markup safe string for Python */
-python-simplejson   /* required by python versions before 2.5 */
-python-crypto       /* required by ansible */
-python-setuptools   /* required by newer versions of ansible */
+gcc                 /* packages needed for compiling pycrypto */
+make
+python-dev
+python-apt          /* allows ansible to manage apt packages */
+python-setuptools   /* required for installing pip */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */
+keychain            /* manages ssh-agent keys for ansible */
