@@ -1,17 +1,29 @@
+turnkey-ansible-13.1-rc4 (1) turnkey; urgency=low
+
+   - generalized turnkey-update to run scripts in /etc/turnkey/update.d
+   - replaced ssh-agent-helper with keychain, which does the same thing, only better
+   - allow turnkey-update display help when not root.
+   - added python-apt to allow ansible to manage apt packages
+   - created admins group with sudo privileges; added ansible user to admins
+   - changed turnkey-update default to security updates only
+   - remove Ubuntu PPA; install ansible and dependencies using pip
+
+ -- John Carver <dude4linux@gmail.com>  Mon Feb 16 04:49:18 UTC 2015
+
 turnkey-ansible-13.1-rc3.0.1 (1) turnkey; urgency=low
 
    - Restored Python pip needed to run certain Ansible plays
-	 - Can't use pip to update Ansible when installed from Ubuntu PPA
+   - Can't use pip to update Ansible when installed from Ubuntu PPA
 
  -- John Carver <dude4linux@gmail.com>  Fri Feb 13 17:31:39 UTC 2015
 
 turnkey-ansible-13.1-rc3 (1) turnkey; urgency=low
 
    - Updated to latest Ansible version 1.8.2
-	 - Install Ansible from Ubuntu PPA; removed Python pip
-	 - Added ssh-agent-helper to prime ssh-agent with ansible's password
-	 - Added ansible ssh key to root's authorized_keys
-	 - Granted ansible passwordless sudo
+   - Install Ansible from Ubuntu PPA; removed Python pip
+   - Added ssh-agent-helper to prime ssh-agent with ansible's password
+   - Added ansible ssh key to root's authorized_keys
+   - Granted ansible passwordless sudo
 
  -- John Carver <dude4linux@gmail.com>  Tue Feb 10 18:36:32 UTC 2015
 
