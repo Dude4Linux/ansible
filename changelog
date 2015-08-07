@@ -1,3 +1,9 @@
+turnkey-ansible-14.0-rc1 (1) turnkey; urgency=low
+
+   - changed to new ansible logo - used by permission
+
+ -- John Carver <dude4linux@gmail.com>  Fri Aug  7 04:49:52 UTC 2015
+
 turnkey-ansible-13.1-rc4 (1) turnkey; urgency=low
 
    - generalized turnkey-update to run scripts in /etc/turnkey/update.d
