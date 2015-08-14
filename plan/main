@@ -1,5 +1,6 @@
 /* Include turnkey base and other appliances below */
 #include <turnkey/base>
+lighttpd
 
 /* Add required Debian packages one per line below */
 libyaml-0-2         /* packages needed for yaml parsing */

@@ -1,0 +1,14 @@
+#!/bin/bash -ex
+
+HTDOCS=/var/www/ansible/htdocs
+
+# webserver related
+mkdir -p /var/www/ansible/logs
+chown www-data:www-data /var/www/ansible/logs
+
+mkdir -p $HTDOCS/{css,images}
+cp /var/www/js/ui.* $HTDOCS/js/
+cp /var/www/css/*.css $HTDOCS/css/
+cp /var/www/images/{webmin.png,shell.png,tab.png} $HTDOCS/images/
+rm -rf /var/www/{js,css,images}
+
