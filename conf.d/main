@@ -8,3 +8,7 @@ cp /var/www/js/ui.* $HTDOCS/js/
 cp /var/www/css/*.css $HTDOCS/css/
 cp /var/www/images/{webmin.png,shell.png,tab.png} $HTDOCS/images/
 rm -rf /var/www/{js,css,images}
+
+# initialize ansible directories
+cd /home/ansible
+su ansible -c "ansible-galaxy init turnkey"
