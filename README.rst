@@ -44,6 +44,6 @@ Credentials *(passwords set at first boot)*
 
 .. Edit above to remove references to MySQL, phpMyAdmin, etc if not used in your appliance.  Add a line for additional application credentials, if any, set at first boot.
 
-.. _Usage: USAGE.rst
-.. _Ansible: http://docs.ansible.com
+.. _Usage: docs/usage.rst
+.. _Ansible: http://docs.ansible.com/ansible/index.html
 .. _TurnKey Core: http://www.turnkeylinux.org/core
