@@ -13,3 +13,6 @@ python-setuptools   /* required for installing pip */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */
 keychain            /* manages ssh-agent keys for ansible */
+
+/* Optional but nice to have packages one per line below */
+tree
