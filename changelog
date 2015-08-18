@@ -1,3 +1,10 @@
+turnkey-ansible-14.0 (1) turnkey; urgency=low
+
+   - updated changelog for 14.0 release
+   - removed obsolete graphics from .art
+
+ -- John Carver <dude4linux@gmail.com>  Tue Aug 18 15:59:51 UTC 2015
+
 turnkey-ansible-14.0-rc2 (1) turnkey; urgency=low
 
    - added lighttpd web interface with Quick Start
