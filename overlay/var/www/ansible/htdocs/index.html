@@ -36,7 +36,7 @@
         <div id="container-1">
             <ul>
                 <li><a href="#cp"><span>Control Panel</span></a></li>
-                <li><a href="#ref"><span>Quick reference</span></a></li>
+                <li><a href="#ref"><span>Quick Start</span></a></li>
             </ul>
 
             <div id="cp">
@@ -63,15 +63,22 @@
             </div>
             <div id="ref">
                 <div class="fragment-content">
-                    <h3>Create a client profile</h3>
-                    <pre>openvpn-addclient client-name client-email [private-subnet]</pre>
-                    <h3>Create auto-expiring obfuscated client profile download url</h3>
-                    <pre>/var/www/openvpn/bin/addprofile client-name</pre>
-                    <h3>Manually trigger deletion of expired profile download urls</h3>
-                    <pre>/etc/cron.hourly/openvpn-profiles-delexpired</pre>
-                    <h3>Revoke client certificate</h3>
-                    <pre>source /etc/openvpn/easy-rsa/vars
-/etc/openvpn/easy-rsa/revoke-full client-name</pre>
+                    <h3>Login as the 'ansible' user</h3>
+                    <pre>ssh ansible@ansible</pre>
+                    <h4>Note: re-enter ansible password when prompted for passphrase by ssh-agent</h4>
+                    <h3>Verify that Ansible is working</h3>
+                    <pre>ansible localhost -m ping</pre>
+                    <h3>Gather TurnKey facts</h3>
+                    <pre>ansible localhost -m turnkey_facts</pre>
+                    <h3>Gather Ansible facts</h3>
+                    <pre>ansible localhost -m setup</pre>
+                    <h3>Add &lt;hostname&gt; to Ansible inventory</h3>
+                    <pre>echo -e "&lt;hostname&gt;" | sudo tee -a /etc/ansible/hosts</pre>
+                    <h3>Initialize &lt;hostname&gt; and add ansible user</h3>
+                    <pre>ansible-playbook playbooks/init.yml -k -l &lt;hostname&gt;</pre>
+                    <h4>Enter the root password of &lt;hostname&gt; when prompted</h4>
+                    <h4>Now use 'ansible' when accessing &lt;hostname&gt;</h4>
+                    <pre>sudo sed -i "/&lt;hostname&gt;/ s/^\(.*\)$/\1\t\tansible_ssh_user=ansible/" /etc/ansible/hosts</pre>
                 </div>
             </div>
         </div>
