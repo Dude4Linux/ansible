@@ -1,4 +1,0 @@
-#! /bin/bash
-if [[ -f $(which pip) ]]; then
-  pip install ansible --upgrade
-fi
