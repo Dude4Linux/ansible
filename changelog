@@ -1,3 +1,13 @@
+turnkey-ansible-14.0-rc2 (1) turnkey; urgency=low
+
+   - added lighttpd web interface with Quick Start
+   - removed pip upgrade as we now use Ubuntu's Ansible PPA
+   - now installing Ansible version 1.9.2 from upstream PPA
+   - default user directories now set in /etc/skel
+   - miscellaneous code cleanup
+
+ -- John Carver <dude4linux@gmail.com>  Tue Aug 18 14:50:57 UTC 2015
+
 turnkey-ansible-14.0-rc1 (1) turnkey; urgency=low
 
    - changed to new ansible logo - used by permission
