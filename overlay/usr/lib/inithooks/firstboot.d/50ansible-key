@@ -2,7 +2,7 @@
 # add ansible ssh key to root's authorized_keys
 # allows ansible to login as root without a password
 
-ANSIBLE_USER=ansible
+APP_USER=ansible
 
 . /etc/default/inithooks
 
@@ -10,4 +10,4 @@ ANSIBLE_USER=ansible
 
 # make sure the .ssh directory exists
 mkdir -p /root/.ssh
-cat /home/$ANSIBLE_USER/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
+cat /home/$APP_USER/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
