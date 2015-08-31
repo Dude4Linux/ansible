@@ -8,7 +8,7 @@ or zero downtime rolling updates.
 This appliance includes all the standard features in `TurnKey Core`_, and on top of that:
 
 - Latest stable release of Ansible (currently v1.9.2)
-- Ansible installed from Ubuntu Ansible PPA (trusty)
+- Ansible installed via pip
 - Sudo support for the ansible user.
 - SSL support out of the box.
 - Webmin modules for managing and configuring server.
