@@ -1,96 +1,21 @@
 turnkey-ansible-14.0 (1) turnkey; urgency=low
 
-   - updated changelog for 14.0 release
-   - removed obsolete graphics from .art
+  * Initial release of appliance.
 
- -- John Carver <dude4linux@gmail.com>  Tue Aug 18 15:59:51 UTC 2015
+  * Ansible Appliance:
 
-turnkey-ansible-14.0-rc2 (1) turnkey; urgency=low
-
-   - added lighttpd web interface with Quick Start
-   - removed pip upgrade as we now use Ubuntu's Ansible PPA
-   - now installing Ansible version 1.9.2 from upstream PPA
-   - default user directories now set in /etc/skel
-   - miscellaneous code cleanup
-
- -- John Carver <dude4linux@gmail.com>  Tue Aug 18 14:50:57 UTC 2015
-
-turnkey-ansible-14.0-rc1 (1) turnkey; urgency=low
-
-   - changed to new ansible logo - used by permission
-
- -- John Carver <dude4linux@gmail.com>  Fri Aug  7 04:49:52 UTC 2015
-
-turnkey-ansible-13.1-rc4 (1) turnkey; urgency=low
-
-   - generalized turnkey-update to run scripts in /etc/turnkey/update.d
-   - replaced ssh-agent-helper with keychain, which does the same thing, only better
-   - allow turnkey-update display help when not root.
-   - added python-apt to allow ansible to manage apt packages
-   - created admins group with sudo privileges; added ansible user to admins
-   - changed turnkey-update default to security updates only
-   - remove Ubuntu PPA; install ansible and dependencies using pip
-
- -- John Carver <dude4linux@gmail.com>  Mon Feb 16 04:49:18 UTC 2015
-
-turnkey-ansible-13.1-rc3.0.1 (1) turnkey; urgency=low
-
-   - Restored Python pip needed to run certain Ansible plays
-   - Can't use pip to update Ansible when installed from Ubuntu PPA
-
- -- John Carver <dude4linux@gmail.com>  Fri Feb 13 17:31:39 UTC 2015
-
-turnkey-ansible-13.1-rc3 (1) turnkey; urgency=low
-
-   - Updated to latest Ansible version 1.8.2
-   - Install Ansible from Ubuntu PPA; removed Python pip
-   - Added ssh-agent-helper to prime ssh-agent with ansible's password
-   - Added ansible ssh key to root's authorized_keys
-   - Granted ansible passwordless sudo
-
- -- John Carver <dude4linux@gmail.com>  Tue Feb 10 18:36:32 UTC 2015
-
-turnkey-ansible-13.1-rc2 (1) turnkey; urgency=low
-
-   - Updated to latest Ansible version 1.7.1
-
- -- John Carver <dude4linux@gmail.com>  Thu Sep 11 16:34:51 UTC 2014
-
-turnkey-ansible-13.1-rc1 (1) turnkey; urgency=low
-
-   - Updated to latest Ansible version 1.6.xx
-   - Added sudo privileges for user 'ansible'
-   - Install Ansible using Python package manager, pip
-
- -- John Carver <dude4linux@gmail.com>  Sat Jul 26 01:48:51 UTC 2014
-
-turnkey-ansible-13.0-beta2 (1) turnkey; urgency=low
-
-   - Updated to Ansible 1.6.6
-   - Added python-setuptools now required by Ansible
-
- -- John Carver <dude4linux@gmail.com>  Sat Jul 12 17:58:48 UTC 2014
-
- * Ansible Appliance:
-
-   - Ansible is an IT automation tool. It can configure systems, deploy software,
-     and orchestrate more advanced IT tasks such as continuous deployments
-     or zero downtime rolling updates.
-
-   - Latest stable version of Ansible is installed via git at build time.
-   - No server or client daemons; uses existing SSHd
-   - No additional software required on clients
-   - Modules can be written in ANY language
-   - Does not require root privledges
+    - Latest stable version of Ansible is installed via pip at build time.
+      (v1.9.3)
+    - No server or client daemons; uses existing SSHd
+    - No additional software required on clients
+    - Modules can be written in ANY language
+    - Does not require root privledges
    
-   * Special notes about TurnKey Ansible appliance
-   - Login as user 'ansible' to run Ansible
-   - Login as user 'root' to manage server
+  * Special notes about TurnKey Ansible appliance
+    - Login as user 'ansible' to run Ansible
+    - Login as user 'root' to manage server
 
- * Please refer to turnkey-core's changelog for changes common to all
-    appliances, as well as the following git logs:
+  * Please refer to turnkey-core's changelog for changes common to all
+    appliances. Here we only describe changes specific to this appliance.
     
-    - https://github.com/turnkeylinux/common
-    - https://github.com/turnkeylinux-apps/drupal7
-
- -- John Carver <dude4linux@gmail.com>  Sun, 29 Dec 2013 16:50:01 -0600
+ -- John Carver <dude4linux@gmail.com>  Tue Aug 18 15:59:51 UTC 2015

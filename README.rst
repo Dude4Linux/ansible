@@ -32,7 +32,6 @@ Credentials *(passwords set at first boot)*
 -  Webmin, SSH: username **root**
 -  Ansible: username **ansible**  
 
-.. Edit above to remove references to MySQL, phpMyAdmin, etc if not used in your appliance.  Add a line for additional application credentials, if any, set at first boot.
 
 .. _Usage: docs/usage.rst
 .. _Ansible: http://docs.ansible.com/ansible/index.html
