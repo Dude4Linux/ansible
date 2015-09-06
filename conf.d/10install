@@ -1,9 +1,0 @@
-#!/bin/sh -ex
-# main installation script
-
-# install Python pip
-easy_install pip
-
-# install ansible
-pip install ansible --upgrade
-
