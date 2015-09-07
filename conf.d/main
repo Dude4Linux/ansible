@@ -31,3 +31,6 @@ cp /var/www/js/ui.* $HTDOCS/js/
 cp /var/www/css/*.css $HTDOCS/css/
 cp /var/www/images/{webmin.png,shell.png,tab.png} $HTDOCS/images/
 rm -rf /var/www/{js,css,images}
+
+# ansible lighty.conf overlay includes ssl
+lighttpd-disable-mod ssl
