@@ -1,5 +1,28 @@
 #!/bin/bash -ex
 
+# install ansible
+pip install ansible --upgrade
+
+ANSIBLE_USER=ansible
+ANSIBLE_PASS=turnkey
+
+# create admins group with sudo privileges
+addgroup --system admins
+
+# create ansible user with default password
+adduser --disabled-login --gecos 'ansible user' $ANSIBLE_USER
+echo $ANSIBLE_USER:$ANSIBLE_PASS | chpasswd
+
+# give ansible user sudo privileges
+usermod -a -G admins $ANSIBLE_USER
+
+# add keychain to ~/.bashrc.d
+cat << _EOF_ > /home/$ANSIBLE_USER/.bashrc.d/keychain
+keychain ~/.ssh/id_rsa
+source ~/.keychain/$HOSTNAME-sh
+_EOF_
+chmod 0755 /home/$ANSIBLE_USER/.bashrc.d/keychain
+
 HTDOCS=/var/www/ansible/htdocs
 
 # webserver related
