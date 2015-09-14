@@ -35,4 +35,4 @@ Credentials *(passwords set at first boot)*
 
 .. _Usage: docs/usage.rst
 .. _Ansible: http://docs.ansible.com/ansible/index.html
-.. _TurnKey Core: http://www.turnkeylinux.org/core
+.. _TurnKey Core: https://www.turnkeylinux.org/core
