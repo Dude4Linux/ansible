@@ -20,6 +20,7 @@ For examples of how to use the Ansible appliance, see `Usage`_.
 
 Documentation
 -------------
+
 - See the latest documentation at http://docs.ansible.com
 - https://github.com/ansible
 - http://jpmens.net/2012/06/06/configuration-management-with-ansible/
@@ -32,7 +33,6 @@ Credentials *(passwords set at first boot)*
 -  Webmin, SSH: username **root**
 -  Ansible: username **ansible**  
 
-
-.. _Usage: docs/usage.rst
+.. _Usage: https://github.com/turnkeylinux-apps/ansible/blob/master/docs/usage.rst
 .. _Ansible: http://docs.ansible.com/ansible/index.html
 .. _TurnKey Core: https://www.turnkeylinux.org/core
