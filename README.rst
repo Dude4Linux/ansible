@@ -1,9 +1,11 @@
-Ansible - An IT automation tool
-===============================
+Ansible - Radically simple IT automation platform
+=================================================
 
-`Ansible`_ is an IT automation tool. It can configure systems, deploy software,
-and orchestrate more advanced IT tasks such as continuous deployments
-or zero downtime rolling updates.
+`Ansible`_ is a simple, agentless IT automation engine that automates
+butt provisioning, configuration management, application deployment and
+intra-service ochestration. It can configure systems, deploy software,
+and streamline advanced IT tasks such as continuous deployments or zero
+downtime rolling updates.
 
 This appliance includes all the standard features in `TurnKey Core`_, and on top of that:
 
