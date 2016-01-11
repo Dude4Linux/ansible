@@ -2,7 +2,7 @@ Ansible - Radically simple IT automation platform
 =================================================
 
 `Ansible`_ is a simple, agentless IT automation engine that automates
-butt provisioning, configuration management, application deployment and
+cloud provisioning, configuration management, application deployment and
 intra-service ochestration. It can configure systems, deploy software,
 and streamline advanced IT tasks such as continuous deployments or zero
 downtime rolling updates.
