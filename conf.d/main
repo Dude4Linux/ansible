@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 
 # install ansible
-pip install ansible --upgrade
+pip install 'ansible==1.9.4'
 
 ANSIBLE_USER=ansible
 ANSIBLE_PASS=turnkey
