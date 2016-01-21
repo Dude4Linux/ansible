@@ -3,6 +3,9 @@
 # install ansible
 pip install 'ansible==1.9.4'
 
+# install Windows support
+pip install 'pywinrm>=0.1.1'
+
 ANSIBLE_USER=ansible
 ANSIBLE_PASS=turnkey
 

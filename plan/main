@@ -8,6 +8,8 @@ libyaml-dev
 gcc                 /* packages needed for compiling pycrypto */
 make
 python-dev
+krb5-user           /* packages needed for kerberos support */
+python-krbv
 python-apt          /* allows ansible to manage apt packages */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */
