@@ -37,3 +37,6 @@ rm -rf /var/www/{js,css,images}
 
 # ansible lighty.conf overlay includes ssl
 lighttpd-disable-mod ssl
+
+# git clone ansible-examples
+su ansible -c "git clone https://github.com/ansible/ansible-examples.git /home/ansible/examples" 
