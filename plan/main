@@ -5,9 +5,6 @@ python-pip
 
 libyaml-0-2         /* packages needed for yaml parsing */
 libyaml-dev
-gcc                 /* packages needed for compiling pycrypto */
-make
-python-dev
 krb5-user           /* packages needed for kerberos support */
 python-krbv
 python-apt          /* allows ansible to manage apt packages */
