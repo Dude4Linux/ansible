@@ -1,8 +1,8 @@
-#! /bin/bash
+#! /bin/bash 
 # ---------------------------------------------------------------------------
 # turnkey-update - Download and apply package updates
 
-# Copyright 2014, John Carver <dude4linux@gmail.com>
+# Copyright 2014, 2015, 2016, John Carver <dude4linux@gmail.com>
   
   # This program is free software: you can redistribute it and/or modify
   # it under the terms of the GNU General Public License as published by
@@ -15,57 +15,45 @@
   # GNU General Public License at (http://www.gnu.org/licenses/) for
   # more details.
 
-# Usage: turnkey-update [-h|--help] [-a|--all] [-s|--secure]
+# Usage: turnkey-update [-h|--help] [-s|--security]|[-u|--update]|[-d|--dist-upgrade]
 
 # Revision history:
 # 2014-07-23 Created by new_script ver. 3.0
 # 2015-02-14 Display help even if not root
 # 2015-02-15 Generalized to run scripts in /etc/turnkey/update.d/
+# 2016-01-25 Added security update scripts in /etc/turnkey/security.d/
 # ---------------------------------------------------------------------------
 
-PROGNAME=${0##*/}
-VERSION="0.3"
+PROGNAME=$(basename $0)
+VERSION="0.4"
 
 UPDATE_DIR="/etc/turnkey/update.d"
+SECURITY_DIR="/etc/turnkey/security.d"
 
-clean_up() { # Perform pre-exit housekeeping
-  return
-}
-
-error_exit() {
-  echo -e "${PROGNAME}: ${1:-"Unknown Error"}" >&2
-  clean_up
-  exit 1
-}
-
-graceful_exit() {
-  clean_up
-  exit
-}
+info() { echo -e "INFO: $@"; }
+warn() { echo -e "WARN: $@"; return; }
+fatal() { echo -e "FATAL: $@" 1>&2; exit 1; }
 
 signal_exit() { # Handle trapped signals
   case $1 in
-    INT)    error_exit "Program interrupted by user" ;;
-    TERM)   echo -e "\n$PROGNAME: Program terminated" >&2 ; graceful_exit ;;
-    *)      error_exit "$PROGNAME: Terminating on unknown signal" ;;
+    INT)    fatal "${PROGNAME}: Interrupted by user" ;;
+    TERM)   fatal "${PROGNAME}: Program terminated" ;;
+    *)      fatal "${PROGNAME}: Terminating on unknown signal" ;;
   esac
 }
 
 usage() {
-  echo -e "Usage: $PROGNAME [-h|--help] [-a|--all] [-s|--secure]"
-}
-
-help_message() {
   cat <<- _EOF_
-  $PROGNAME ver. $VERSION
+  ${PROGNAME} version ${VERSION}
   Download and apply package updates
 
-  $(usage)
+  Usage: ${PROGNAME} [-h|--help] [-s|--security]|[-u|--update]|[-d|--dist-upgrade]
 
-  Options:
-    -h, --help          Display this help message and exit.
-    -a, --all           Apply all updates
-    -s, --secure        Apply only security updates (default)
+  Options::
+    -h --help          Display this help message and exit.
+    -s --security      Apply only security updates (default)
+    -u --update        Apply all updates
+    -d --dist-upgrade  Perform distribution upgrade and all updates
 
   NOTE: You must be the superuser to run this script.
 
@@ -77,16 +65,20 @@ _EOF_
 trap "signal_exit TERM" TERM HUP
 trap "signal_exit INT"  INT
 
-all="false";
+# Set defaults
+SECURITY=true
+UPDATE=false
+UPGRADE=false
 
 # Parse command-line
 while [[ -n $1 ]]; do
-  case $1 in
-    -h | --help)        help_message; graceful_exit ;;
-    -a | --all)         echo "Apply all updates"; all="true" ;;
-    -s | --secure)      echo "Apply only security updates" ;;
-    -* | --*)           usage; error_exit "Unknown option $1" ;;
-    *)                  echo "Argument $1 to process..." ;;
+  case "$1" in
+    -h | --help)         usage; exit 0 ;;
+    -s | --security)     SECURITY=true ;;
+    -u | --update)       UPDATE=true ;;
+    -d | --dist-upgrade) UPGRADE=true ;;
+    -* | --*)            usage; fatal "Unknown option $1" ;;
+    *)                   usage; fatal "Unknown argument(s) $@" ;;
   esac
   shift
 done
@@ -95,18 +87,32 @@ done
 
 # Check for root UID
 if [[ $(id -u) != 0 ]]; then
-  error_exit "You must be the superuser to run this script."
+  fatal "You must be the superuser to run this script."
 fi
 
-if [[ $all == "false" ]]; then
-  export SEC_UPDATES="FORCE";
-  /usr/lib/inithooks/firstboot.d/95secupdates
-else
+# Run selected package updates
+if [[ ${UPGRADE} == true ]]; then
+  info "Performing Apt Distribution Upgrade"
   apt-get update  -qq
-  apt-get upgrade -qy
-  if [[ -d $UPDATE_DIR ]]; then
-    run-parts --lsbsysinit $UPDATE_DIR
+  DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -qy
+elif [[ ${UPDATE} == true ]]; then
+  info "Performing Apt Package Upgrade"
+  apt-get update  -qq
+  DEBIAN_FRONTEND=noninteractive apt-get upgrade -qy
+elif [[ ${SECURITY} == true ]]; then    # always true
+  SEC_UPDATES=FORCE /usr/lib/inithooks/firstboot.d/95secupdates > /dev/null
+fi
+
+# Run TurnKey update scripts
+if [[ ${UPGRADE} == true ]] || [[ ${UPDATE} == true ]]; then
+  if [[ -d ${UPDATE_DIR} ]]; then
+    info "Running TurnKey update scripts"
+    run-parts ${UPDATE_DIR}
   fi
 fi
 
-graceful_exit
+# Run TurnKey security scripts
+if [[ -d ${SECURITY_DIR} ]]; then
+    run-parts ${SECURITY_DIR}
+fi
+
