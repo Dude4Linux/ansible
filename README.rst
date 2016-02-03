@@ -20,14 +20,13 @@ Usage
 
 For examples of how to use the Ansible appliance, see `Usage`_.
 
-Documentation
--------------
+Resources
+---------
 
-- See the latest documentation at http://docs.ansible.com
-- https://github.com/ansible
-- http://jpmens.net/2012/06/06/configuration-management-with-ansible/
-- http://devopsu.com/guides/ansible-ubuntu-debian.html
-- https://github.com/fourkitchens/server-playbooks
+- `Latest official Ansible documentation <http://docs.ansible.com>`_
+- `Ansible on GitHub <https://github.com/ansible>`_
+- `Configuration management with Ansible <http://jpmens.net/2012/06/06/configuration-management-with-ansible/>`_
+- `Ansible playbooks for use in setting up servers <https://github.com/fourkitchens/server-playbooks>`_
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------
