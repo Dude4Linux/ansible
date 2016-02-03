@@ -2,11 +2,11 @@
 
 # playbooks/init.yml
 #
-# This playbook creates initial admin account and ensures that ansible can
-# access the server through sudo. You should run it just after new server has
-# been installed and connected to the network. Make sure that you can access
-# it through ssh on the root account. You might have to provide a password (in
-# that case use '-k' switch on the command line).
+# This playbook prepares a host to be managed by ansible using the root
+# account. You should run it just after new server has been installed and
+# connected to the network. Make sure that you can access the root account
+# through ssh. You might have to provide a password (in that case use '-k'
+# switch on the command line to prompt for the password).
 #
 # Usage:
 # ansible-playbook -k playbooks/init.yml -l "<hostname>"
@@ -18,8 +18,8 @@
   gather_facts: False
   tags: init
   vars:
-    ssh_user: '{{ lookup("env", "USER") }}'
-    ssh_key: '{{ lookup("file", "~/.ssh/id_rsa.pub") }}'
+    ssh_user: '{{lookup("env", "USER")}}'
+    ssh_key: '{{lookup("file", "~/.ssh/id_rsa.pub")}}'
 
   tasks:
   - name: INIT | Install python support for Ansible
@@ -29,50 +29,21 @@
   - action: setup
     tags: init
 
-  - name: INIT | Create admin system group
-    group: 
-      name: 'admins'
-      state: 'present'
-      system: True 
-    tags: init
-
-  - name: INIT | Create admin account from current user
-    user:
-      name: '{{ ssh_user }}'
-      state: 'present'
-      shell: '/bin/bash'
-      groups: 'admins'
-    tags: init
-
   - name: INIT | Make sure essential software is installed
     apt:
-      name: '{{ item }}'
+      name: '{{item}}'
       state: 'latest'
       install_recommends: False
     with_items:
       - python
       - python-apt
-      - sudo
       - lsb-release
     tags: init
 
   - name: INIT | Install ssh public key from current account
     authorized_key:
-      user: '{{ ssh_user }}'
-      key: '{{ ssh_key }}'
+      user: '{{ssh_user}}'
+      key: '{{ssh_key}}'
       state: 'present'
     failed_when: (ssh_key is undefined or (ssh_key is defined and not ssh_key))
-    tags: init
-
-  - name: INIT | Configure admins group access in sudo
-    lineinfile:
-      dest: '/etc/sudoers.d/admins'
-      state: 'present'
-      create: True
-      regexp: '^%admins'
-      line: '%admins ALL=(ALL:ALL) NOPASSWD: SETENV: ALL'
-      owner: 'root'
-      group: 'root'
-      mode: '0440'
-      validate: 'visudo -cf %s'
     tags: init
