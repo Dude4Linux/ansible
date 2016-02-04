@@ -6,13 +6,11 @@ Place roles created or downloaded by ansible-galaxy here.
 Create a new role
 -----------------
 
-    cd ~/roles
-    ansible-galaxy init my-first-role
+    ansible-galaxy init my-first-role -p ~/roles
 
 Download a role
 ---------------
 
-    cd ~/roles
-    ansible-galaxy install username.rolename
+    ansible-galaxy install username.rolename -p ~/roles
 
 
