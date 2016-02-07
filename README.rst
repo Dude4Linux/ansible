@@ -20,7 +20,7 @@ For examples of how to use the Ansible appliance, see `Usage`_.
 
 Documentation
 -------------
-- See the latest documentation at http://docs.ansible.com
+- See the latest documentation at http://docs.ansible.com/ansible/
 - https://github.com/ansible
 - http://jpmens.net/2012/06/06/configuration-management-with-ansible/
 - http://devopsu.com/guides/ansible-ubuntu-debian.html
