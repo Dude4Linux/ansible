@@ -97,11 +97,11 @@ You should now be able to run plays and playbooks without needing to prompt for 
 
 Documentation
 -------------
-- See the latest documentation at http://docs.ansible.com
+- See the latest documentation at http://docs.ansible.com/ansible/
 - https://github.com/ansible
 - http://jpmens.net/2012/06/06/configuration-management-with-ansible/
 - http://devopsu.com/guides/ansible-ubuntu-debian.html
 - https://github.com/fourkitchens/server-playbooks
 
 
-.. _Ansible: http://docs.ansible.com
+.. _Ansible: http://docs.ansible.com/ansible/

@@ -1,6 +1,6 @@
 # Ansible hosts
 # See /etc/ansible/hosts.example or
-# the on-line documentation at http://docs.ansible.com/intro_inventory.html
+# the on-line documentation at http://docs.ansible.com/ansible/intro_inventory.html
 # for information on how to configure this file.
 
 ansible               ansible_connection=local
