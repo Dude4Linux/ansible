@@ -1,7 +1,13 @@
 #!/bin/bash -ex
 
+# install setuptools
+python -m pip install --upgrade --force setuptools
+
+# upgrade pip
+python -m pip install --upgrade --force pip
+
 # install ansible
-pip install ansible --upgrade
+pip install 'ansible==1.9.4'
 
 ANSIBLE_USER=ansible
 ANSIBLE_PASS=turnkey

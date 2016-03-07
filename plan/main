@@ -5,11 +5,7 @@ python-pip
 
 libyaml-0-2         /* packages needed for yaml parsing */
 libyaml-dev
-gcc                 /* packages needed for compiling pycrypto */
-make
-python-dev
 python-apt          /* allows ansible to manage apt packages */
-python-setuptools   /* required for installing pip */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */
 keychain            /* manages ssh-agent keys for ansible */

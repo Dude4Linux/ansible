@@ -1,4 +1,8 @@
-turnkey-ansible-14.0 (1) turnkey; urgency=low
+turnkey-ansible-14.1 (1) turnkey; urgency=low
+
+  * Ansible version 1.9.4
+
+ -- John Carver <dude4linux@gmail.com>  Tue Jan 19 23:33:37 UTC 2016
 
   * Initial release of appliance.
 
