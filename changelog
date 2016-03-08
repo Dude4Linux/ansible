@@ -1,6 +1,6 @@
 turnkey-ansible-14.2-beta1 (1) turnkey; urgency=low
 
-  * Ansible version 2.x.x
+  * Ansible version 2.0.1
   * Windows support
   * Active Directory (Kerberos) support
 
