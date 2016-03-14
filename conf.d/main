@@ -12,6 +12,10 @@ pip install --upgrade 'ansible>=2.0,<3.0'
 # install Windows support
 pip install --upgrade 'pywinrm>=0.1.1'
 
+# install ansible-lxc-ssh
+mkdir -p /usr/share/ansible_plugins/connection_plugins
+curl -sS --tlsv1.2 -o /usr/share/ansible_plugins/connection_plugins/lxc_ssh.py https://raw.githubusercontent.com/Dude4Linux/ansible-lxc-ssh/master/lxc_ssh.py
+
 ANSIBLE_USER=ansible
 ANSIBLE_PASS=turnkey
 
