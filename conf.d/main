@@ -7,7 +7,7 @@ python -m pip install --upgrade --force setuptools
 python -m pip install --upgrade --force pip
 
 # install ansible
-pip install --upgrade 'ansible>=2.0,<3.0'
+pip install --upgrade 'ansible==2.2.0.0'
 
 # install Windows support
 pip install --upgrade 'pywinrm>=0.1.1'

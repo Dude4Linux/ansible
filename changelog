@@ -1,10 +1,11 @@
-turnkey-ansible-14.2-beta1 (1) turnkey; urgency=low
+turnkey-ansible-14.2-beta2 (1) turnkey; urgency=low
 
-  * Ansible version 2.0.1
+  * Ansible version 2.2.0.0
   * Windows support
-  * Active Directory (Kerberos) support
+  * NTLM and Kerberos delegation
+  * Network Configuration Management
 
- -- John Carver <dude4linux@gmail.com>  Mon Mar  7 22:31:31 UTC 2016
+ -- John Carver <dude4linux@gmail.com>  Mon Dec 12 22:17:28 UTC 2016
 
 turnkey-ansible-14.1 (1) turnkey; urgency=low
 
