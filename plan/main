@@ -10,7 +10,6 @@ python-dev
 libffi-dev
 libssl-dev
 python-apt          /* allows ansible to manage apt packages */
-python-httplib2     /* required by ansible uri module */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */
 keychain            /* manages ssh-agent keys for ansible */
