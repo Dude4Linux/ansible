@@ -5,9 +5,10 @@ python-pip
 
 libyaml-0-2         /* packages needed for yaml parsing */
 libyaml-dev
-krb5-user           /* packages needed for kerberos support */
-python-krbv
-python-kerberos
+gcc                 /* packages required by Ansible >= 2.1 */
+python-dev
+libffi-dev
+libssl-dev
 python-apt          /* allows ansible to manage apt packages */
 python-httplib2     /* required by ansible uri module */
 sudo                /* required to give ansible user root privileges */
