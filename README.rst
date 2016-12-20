@@ -28,6 +28,8 @@ Resources
 - `Configuration management with Ansible <http://jpmens.net/2012/06/06/configuration-management-with-ansible/>`_
 - `Ansible playbooks for use in setting up servers <https://github.com/fourkitchens/server-playbooks>`_
 
+Note: this software appliance is not supported by Ansible or Red Hat
+
 Credentials *(passwords set at first boot)*
 -------------------------------------------
 
