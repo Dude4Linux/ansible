@@ -1,7 +1,7 @@
 /* Include turnkey base and other appliances below */
 #include <turnkey/base>
 lighttpd
-python-pip
+python-setuptools
 
 libyaml-0-2         /* packages needed for yaml parsing */
 libyaml-dev
