@@ -9,7 +9,7 @@ downtime rolling updates.
 
 This appliance includes all the standard features in `TurnKey Core`_, and on top of that:
 
-- Stable release of Ansible v1.9.4
+- Stable release of Ansible v2.3.0
 - Ansible installed via pip
 - Sudo support for the ansible user.
 - SSL support out of the box.
@@ -23,7 +23,7 @@ For examples of how to use the Ansible appliance, see `Usage`_.
 Resources
 ---------
 
-- `Latest official Ansible documentation <http://docs.ansible.com>`_
+- `Latest official Ansible documentation <https://docs.ansible.com/ansible/index/index.html>`_
 - `Ansible on GitHub <https://github.com/ansible>`_
 - `Configuration management with Ansible <http://jpmens.net/2012/06/06/configuration-management-with-ansible/>`_
 - `Ansible playbooks for use in setting up servers <https://github.com/fourkitchens/server-playbooks>`_
