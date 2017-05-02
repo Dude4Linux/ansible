@@ -16,6 +16,7 @@ import getopt
 import subprocess
 from subprocess import PIPE
 import signal
+import pipes
 
 from dialog_wrapper import Dialog
 
@@ -66,7 +67,7 @@ def main():
         fatal(err)
 
     """use ssh-keygen to create an rsa key pair using the same password"""
-    subprocess.call(['su', username, '-c', 'ssh-keygen -q -b 4096 -t rsa -f $HOME/.ssh/id_rsa -N %s' % password])
+    subprocess.call(['su', username, '-c', 'ssh-keygen -q -b 4096 -t rsa -f $HOME/.ssh/id_rsa -N %s' % pipes.quote(password)])
     if err:
         fatal(err)
 

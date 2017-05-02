@@ -5,7 +5,8 @@ python-setuptools
 
 libyaml-0-2         /* packages needed for yaml parsing */
 libyaml-dev
-gcc                 /* packages required by Ansible >= 2.1 */
+gcc                 /* packages needed for compiling pycrypto */
+make
 python-dev
 libffi-dev
 libssl-dev
