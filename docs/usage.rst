@@ -153,6 +153,26 @@ An alternative to manually installing the ssh key in the previous step, is to us
     <turnkey_app>                        : ok=4    changed=1    unreachable=0    failed=0   
     
 
+TurnKey Facts
+-------------
+
+After the TurnKey appliance has been initialized by init.yml, you can then gather facts about the appliance.  These facts can then be used in playbooks to control the flow of execution.
+
+::
+
+    ansible@ansible /etc/lighttpd$ ansible <turnkey_app> -m turnkey_facts
+    <turnkey_app> | SUCCESS => {
+        "ansible_facts": {
+            "turnkey": true, 
+            "turnkey_app": "lamp ", 
+            "turnkey_arch": "amd64", 
+            "turnkey_deb": "jessie", 
+            "turnkey_ver": "14.1", 
+            "turnkey_version_output": "turnkey-lamp-14.1-jessie-amd64"
+        }, 
+        "changed": false
+    }
+
 Documentation
 -------------
 - See the latest documentation at https://docs.ansible.com/ansible/index.html
