@@ -16,9 +16,6 @@
   remote_user: root
   gather_facts: False
   tags: init
-  vars:
-    ssh_user: '{{lookup("env", "USER")}}'
-    ssh_key: '{{lookup("file", "~/.ssh/id_rsa.pub")}}'
 
   tasks:
   - name: INIT | Install python support for Ansible
@@ -30,7 +27,7 @@
 
   - name: INIT | Make sure essential software is installed
     apt:
-      name: '{{item}}'
+      name: '{{ item }}'
       state: 'latest'
       install_recommends: False
     with_items:
@@ -41,8 +38,7 @@
 
   - name: INIT | Install ssh public key from current account
     authorized_key:
-      user: '{{ssh_user}}'
-      key: '{{ssh_key}}'
+      user: root
+      key:  '{{ lookup("file", "~/.ssh/id_rsa.pub") }}'
       state: 'present'
-    failed_when: (ssh_key is undefined or (ssh_key is defined and not ssh_key))
     tags: init
