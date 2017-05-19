@@ -28,6 +28,10 @@ echo $ANSIBLE_USER:$ANSIBLE_PASS | chpasswd
 # give ansible user sudo privileges
 usermod -a -G admins $ANSIBLE_USER
 
+# create ansible log directory
+mkdir -p /var/log/ansible
+chown ansible:ansible /var/log/ansible
+
 # add keychain to ~/.bashrc.d
 cat << _EOF_ > /home/$ANSIBLE_USER/.bashrc.d/keychain
 keychain ~/.ssh/id_rsa

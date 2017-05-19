@@ -1,0 +1,10 @@
+/var/log/ansible/ansible.log
+{
+  rotate 12
+  weekly
+  missingok
+  notifempty
+  delaycompress
+  compress
+}
+
