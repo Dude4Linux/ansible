@@ -4,8 +4,9 @@ turnkey-ansible-14.2 (1) turnkey; urgency=low
   * Windows support
   * NTLM and Kerberos delegation
   * Network Configuration Management
+  * Optional logging with Logrotate
 
- -- John Carver <dude4linux@gmail.com>  Tue May  2 04:37:40 UTC 2017
+ -- John Carver <dude4linux@gmail.com>  Fri, 19 May 2017 16:41:30 +0000
 
 turnkey-ansible-14.1 (1) turnkey; urgency=low
 
