@@ -1,6 +1,11 @@
 # Ansible hosts
 # See /etc/ansible/hosts.example or
-# the on-line documentation at http://docs.ansible.com/intro_inventory.html
+# the on-line documentation at http://docs.ansible.com/ansible/intro_inventory.html
 # for information on how to configure this file.
 
 ansible               ansible_connection=local
+
+[windows]
+# Replace the following with the names of your managed Windows servers
+#winserver1.example.com
+#winserver2.example.com

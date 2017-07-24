@@ -1,0 +1,118 @@
+#! /bin/bash 
+# ---------------------------------------------------------------------------
+# turnkey-update - Download and apply package updates
+
+# Copyright 2014, 2015, 2016, John Carver <dude4linux@gmail.com>
+  
+  # This program is free software: you can redistribute it and/or modify
+  # it under the terms of the GNU General Public License as published by
+  # the Free Software Foundation, either version 3 of the License, or
+  # (at your option) any later version.
+
+  # This program is distributed in the hope that it will be useful,
+  # but WITHOUT ANY WARRANTY; without even the implied warranty of
+  # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  # GNU General Public License at (http://www.gnu.org/licenses/) for
+  # more details.
+
+# Usage: turnkey-update [-h|--help] [-s|--security]|[-u|--update]|[-d|--dist-upgrade]
+
+# Revision history:
+# 2014-07-23 Created by new_script ver. 3.0
+# 2015-02-14 Display help even if not root
+# 2015-02-15 Generalized to run scripts in /etc/turnkey/update.d/
+# 2016-01-25 Added security update scripts in /etc/turnkey/security.d/
+# ---------------------------------------------------------------------------
+
+PROGNAME=$(basename $0)
+VERSION="0.4"
+
+UPDATE_DIR="/etc/turnkey/update.d"
+SECURITY_DIR="/etc/turnkey/security.d"
+
+info() { echo -e "INFO: $@"; }
+warn() { echo -e "WARN: $@"; return; }
+fatal() { echo -e "FATAL: $@" 1>&2; exit 1; }
+
+signal_exit() { # Handle trapped signals
+  case $1 in
+    INT)    fatal "${PROGNAME}: Interrupted by user" ;;
+    TERM)   fatal "${PROGNAME}: Program terminated" ;;
+    *)      fatal "${PROGNAME}: Terminating on unknown signal" ;;
+  esac
+}
+
+usage() {
+  cat <<- _EOF_
+  ${PROGNAME} version ${VERSION}
+  Download and apply package updates
+
+  Usage: ${PROGNAME} [-h|--help] [-s|--security]|[-u|--update]|[-d|--dist-upgrade]
+
+  Options::
+    -h --help          Display this help message and exit.
+    -s --security      Apply only security updates (default)
+    -u --update        Apply all updates
+    -d --dist-upgrade  Perform distribution upgrade and all updates
+
+  NOTE: You must be the superuser to run this script.
+
+_EOF_
+  return
+}
+
+# Trap signals
+trap "signal_exit TERM" TERM HUP
+trap "signal_exit INT"  INT
+
+# Set defaults
+SECURITY=true
+UPDATE=false
+UPGRADE=false
+
+# Parse command-line
+while [[ -n $1 ]]; do
+  case "$1" in
+    -h | --help)         usage; exit 0 ;;
+    -s | --security)     SECURITY=true ;;
+    -u | --update)       UPDATE=true ;;
+    -d | --dist-upgrade) UPGRADE=true ;;
+    -* | --*)            usage; fatal "Unknown option $1" ;;
+    *)                   usage; fatal "Unknown argument(s) $@" ;;
+  esac
+  shift
+done
+
+# Main logic
+
+# Check for root UID
+if [[ $(id -u) != 0 ]]; then
+  fatal "You must be the superuser to run this script."
+fi
+
+# Run selected package updates
+if [[ ${UPGRADE} == true ]]; then
+  info "Performing Apt Distribution Upgrade"
+  apt-get update  -qq
+  DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -qy
+elif [[ ${UPDATE} == true ]]; then
+  info "Performing Apt Package Upgrade"
+  apt-get update  -qq
+  DEBIAN_FRONTEND=noninteractive apt-get upgrade -qy
+elif [[ ${SECURITY} == true ]]; then    # always true
+  SEC_UPDATES=FORCE /usr/lib/inithooks/firstboot.d/95secupdates > /dev/null
+fi
+
+# Run TurnKey update scripts
+if [[ ${UPGRADE} == true ]] || [[ ${UPDATE} == true ]]; then
+  if [[ -d ${UPDATE_DIR} ]]; then
+    info "Running TurnKey update scripts"
+    run-parts ${UPDATE_DIR}
+  fi
+fi
+
+# Run TurnKey security scripts
+if [[ -d ${SECURITY_DIR} ]]; then
+    run-parts ${SECURITY_DIR}
+fi
+

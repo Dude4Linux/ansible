@@ -57,7 +57,7 @@ def main():
 	#application name should be from index 1 to version number index
 	fact_app = ""
 	for j in facts[1:ver_index]:
-		fact_app += j+' '
+		fact_app += j
 
 	fact_arch = facts[-1]
 	fact_deb = facts[-2]

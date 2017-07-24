@@ -1,7 +1,19 @@
 #!/bin/bash -ex
 
+# install pip
+easy_install pip
+
+# upgrade setuptools
+python -m pip install --upgrade --force setuptools
+
 # install ansible
-pip install 'ansible==1.9.4'
+pip install 'ansible==2.3.0.0'
+
+# install Windows support
+pip install --upgrade 'pywinrm>=0.1.1'
+
+# install ansible-lxc-ssh
+curl -sS --tlsv1.2 -o /usr/share/ansible/plugins/connection/lxc_ssh.py https://raw.githubusercontent.com/Dude4Linux/ansible-lxc-ssh/master/lxc_ssh.py
 
 ANSIBLE_USER=ansible
 ANSIBLE_PASS=turnkey
@@ -15,6 +27,10 @@ echo $ANSIBLE_USER:$ANSIBLE_PASS | chpasswd
 
 # give ansible user sudo privileges
 usermod -a -G admins $ANSIBLE_USER
+
+# create ansible log directory
+mkdir -p /var/log/ansible
+chown ansible:ansible /var/log/ansible
 
 # add keychain to ~/.bashrc.d
 cat << _EOF_ > /home/$ANSIBLE_USER/.bashrc.d/keychain
@@ -34,3 +50,6 @@ rm -rf /var/www/{js,css,images}
 
 # ansible lighty.conf overlay includes ssl
 lighttpd-disable-mod ssl
+
+# git clone ansible-examples
+su ansible -c "git clone https://github.com/ansible/ansible-examples.git /home/ansible/examples" 

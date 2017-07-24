@@ -1,7 +1,7 @@
 /* Include turnkey base and other appliances below */
 #include <turnkey/base>
 lighttpd
-python-pip
+python-setuptools
 
 libyaml-0-2         /* packages needed for yaml parsing */
 libyaml-dev
@@ -14,3 +14,4 @@ python-apt          /* allows ansible to manage apt packages */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */
 keychain            /* manages ssh-agent keys for ansible */
+tree                /* useful utility for displaying directory structure */
