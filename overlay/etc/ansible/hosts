@@ -5,7 +5,7 @@
 
 ansible               ansible_connection=local
 
-[windows]
-# Replace the following with the names of your managed Windows servers
+# Uncomment & replace the following with the names of your managed Windows servers
+#[windows]
 #winserver1.example.com
 #winserver2.example.com

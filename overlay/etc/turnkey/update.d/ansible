@@ -2,7 +2,7 @@
 
 VERSIONS=">=2.0,<3.0"
 
-if [[ -f $(which pip) ]]; then
+if [[ -x $(which pip) ]]; then
   # use two step method to install dependencies "only if needed"
   pip install --upgrade --no-deps "ansible$VERSIONS"
   pip install "ansible$VERSIONS"
