@@ -1,61 +1,46 @@
 #!/bin/bash -ex
 
-# install pip
-easy_install pip
-
-# upgrade setuptools
-python -m pip install --upgrade --force setuptools
-
-# install ansible
-pip install 'ansible==2.4.2.0'
-
-# install Windows support
-pip install --upgrade 'pywinrm>=0.1.1'
-
-ANSIBLE_USER=ansible
-ANSIBLE_PASS=turnkey
-
-# configure default new user skel dir to be /etc/skel-ansible
-CONF=/etc/default/useradd
-sed -i "/SKEL=/ {s|^# ||; s|/etc/skel.*|/etc/skel-${ANSIBLE_USER}|}" $CONF
-cp -r /etc/skel/. /etc/skel-${ANSIBLE_USER}
-
-# create admins group with sudo privileges
-addgroup --system admins
-
-# create ansible user with default password
-adduser --disabled-login --gecos 'ansible user' $ANSIBLE_USER
-echo $ANSIBLE_USER:$ANSIBLE_PASS | chpasswd
-
-# work around AWS MarketPlace issue:
-# - lock account so no login allowed until password has been set
-passwd -l $ANSIBLE_USER
-
-# give ansible user sudo privileges
-usermod -a -G admins $ANSIBLE_USER
-
-# create ansible log directory
-mkdir -p /var/log/ansible
-chown ansible:ansible /var/log/ansible
-
-# add keychain to ~/.bashrc.d
-cat << _EOF_ > /home/$ANSIBLE_USER/.bashrc.d/keychain
-keychain ~/.ssh/id_rsa
-source ~/.keychain/$HOSTNAME-sh
-_EOF_
-chmod 0755 /home/$ANSIBLE_USER/.bashrc.d/keychain
+ADMIN_USER=ansible
+ADMIN_PASS=turnkey
 
 HTDOCS=/var/www/ansible/htdocs
 
-# webserver related
+# install ansible and deps (inc Windows support)
+easy_install pip
+python -m pip install --upgrade --force setuptools
+pip install 'ansible==2.4.2.0'
+pip install --upgrade 'pywinrm>=0.1.1'
+
+# configure default new user skel dir to be /etc/skel-ansible
+CONF=/etc/default/useradd
+sed -i "/SKEL=/ {s|^# ||; s|/etc/skel.*|/etc/skel-${ADMIN_USER}|}" $CONF
+cp -r /etc/skel/. /etc/skel-${ADMIN_USER}
+
+# create admins group, ansible user and sudo privs
+addgroup --system admins
+adduser --disabled-login --gecos 'ansible user' $ADMIN_USER
+echo $ADMIN_USER:$ADMIN_PASS | chpasswd
+usermod -a -G admins $ADMIN_USER
+passwd -l $ADMIN_USER # lock account (AWS workaround; setting passwd reenables)
+
+# create ansible log directory
+mkdir -p /var/log/ansible
+chown $ADMIN_USER:$ADMIN_USER /var/log/ansible
+
+# add keychain to ~/.bashrc.d
+cat > /home/$ADMIN_USER/.bashrc.d/keychain <<_EOF_
+keychain ~/.ssh/id_rsa
+source ~/.keychain/$HOSTNAME-sh
+_EOF_
+chmod 0755 /home/$ADMIN_USER/.bashrc.d/keychain
+
+# web setup
+lighttpd-disable-mod ssl # ansible.con already includes ssl
 mkdir -p $HTDOCS/{css,images}
 cp /var/www/js/ui.* $HTDOCS/js/
 cp /var/www/css/*.css $HTDOCS/css/
 cp /var/www/images/{webmin.png,shell.png,tab.png} $HTDOCS/images/
 rm -rf /var/www/{js,css,images}
-
-# ansible lighty.conf overlay includes ssl
-lighttpd-disable-mod ssl
 
 # git clone ansible-examples
 su ansible -c "git clone https://github.com/ansible/ansible-examples.git /home/ansible/examples" 
