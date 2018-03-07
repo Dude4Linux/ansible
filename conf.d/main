@@ -15,6 +15,11 @@ pip install --upgrade 'pywinrm>=0.1.1'
 ANSIBLE_USER=ansible
 ANSIBLE_PASS=turnkey
 
+# configure default new user skel dir to be /etc/skel-ansible
+CONF=/etc/default/useradd
+sed -i "/SKEL=/ {s|^# ||; s|/etc/skel.*|/etc/skel-${ANSIBLE_USER}|}" $CONF
+cp -r /etc/skel/. /etc/skel-${ANSIBLE_USER}
+
 # create admins group with sudo privileges
 addgroup --system admins
 
