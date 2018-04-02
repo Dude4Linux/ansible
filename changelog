@@ -1,6 +1,6 @@
 turnkey-ansible-15.0 (1) turnkey; urgency=low
 
-  * Ansible version 2.4.3
+  * Ansible version 2.5.0
 
   * Fixed #935 - Issues with Ansible launched via the Hub/AWS.
 

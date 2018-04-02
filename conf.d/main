@@ -8,7 +8,7 @@ HTDOCS=/var/www/ansible/htdocs
 # install ansible and deps (inc Windows support)
 easy_install pip
 python -m pip install --upgrade --force setuptools
-pip install 'ansible==2.4.3.0'
+pip install 'ansible==2.5.0.0'
 pip install --upgrade 'pywinrm>=0.1.1'
 
 # configure default new user skel dir to be /etc/skel-ansible
