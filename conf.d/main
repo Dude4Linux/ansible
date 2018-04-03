@@ -30,7 +30,7 @@ chown $ADMIN_USER:$ADMIN_USER /var/log/ansible
 # add keychain to ~/.bashrc.d
 cat > /home/$ADMIN_USER/.bashrc.d/keychain <<_EOF_
 keychain ~/.ssh/id_rsa
-source ~/.keychain/$HOSTNAME-sh
+source ~/.keychain/\$(hostname)-sh
 _EOF_
 chmod 0755 /home/$ADMIN_USER/.bashrc.d/keychain
 
