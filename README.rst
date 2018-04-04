@@ -1,5 +1,5 @@
-Ansible - Radically simple IT automation platform
-=================================================
+Ansible® - Radically simple IT automation platform
+==================================================
 
 `Ansible`_ is a simple, agentless IT automation engine that automates
 cloud provisioning, configuration management, application deployment and
@@ -9,8 +9,9 @@ downtime rolling updates.
 
 This appliance includes all the standard features in `TurnKey Core`_, and on top of that:
 
-- Stable release of Ansible v2.3.0
-- Ansible installed via pip
+- Stable release of Ansible 2.5.0
+- WinRM support for managing Windows hosts.
+- Ansible installed via pip.
 - Sudo support for the ansible user.
 - SSL support out of the box.
 - Webmin modules for managing and configuring server.
@@ -28,7 +29,9 @@ Resources
 - `Configuration management with Ansible <http://jpmens.net/2012/06/06/configuration-management-with-ansible/>`_
 - `Ansible playbooks for use in setting up servers <https://github.com/fourkitchens/server-playbooks>`_
 
-Note: this software appliance is not supported by Ansible or Red Hat
+Ansible® is a registered trademark of Ansible, Inc. in the United States and other countries.
+
+Note: This software appliance is not supported by Ansible or Red Hat
 
 Credentials *(passwords set at first boot)*
 -------------------------------------------
