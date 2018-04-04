@@ -1,5 +1,5 @@
-Ansible - An IT automation tool
-=================================
+Ansible® - An IT automation tool
+================================
 
 `Ansible`_ is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.
 
@@ -181,6 +181,7 @@ Documentation
 - http://devopsu.com/guides/ansible-ubuntu-debian.html
 - https://github.com/fourkitchens/server-playbooks
 
+Ansible® is a registered trademark of Ansible, Inc. in the United States and other countries.
 
 .. _Ansible: https://docs.ansible.com/ansible/index.html
 .. _Inventory: https://docs.ansible.com/ansible/intro_inventory.html
