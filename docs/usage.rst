@@ -173,6 +173,15 @@ After the TurnKey appliance has been initialized by init.yml, you can then gathe
         "changed": false
     }
 
+MultiUser
+---------
+
+If the Ansible appliance will be used by multiple developers, then you will need to create additional users. To give them the default ansible directory layout, specify the environment varible ``SKEL=/etc/skel-ansible``. If your needs include a different default layout, you may want to modify ``/etc/skel-ansible`` before adding the users.
+
+::
+
+    SKEL=/etc/skel-ansible adduser --gecos '{users full name}' {users account name}
+
 Documentation
 -------------
 - See the latest documentation at https://docs.ansible.com/ansible/index.html
@@ -181,7 +190,7 @@ Documentation
 - http://devopsu.com/guides/ansible-ubuntu-debian.html
 - https://github.com/fourkitchens/server-playbooks
 
-Ansible® is a registered trademark of Ansible, Inc. in the United States and other countries.
+**Ansible®** is a registered trademark of Ansible, Inc. in the United States and other countries.
 
 .. _Ansible: https://docs.ansible.com/ansible/index.html
 .. _Inventory: https://docs.ansible.com/ansible/intro_inventory.html
