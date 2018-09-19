@@ -64,7 +64,7 @@
             <div id="ref">
                 <div class="fragment-content">
                     <h3>Login as the 'ansible' user</h3>
-                    <pre>ssh ansible@ansible</pre>
+                    <pre id="ssh-connection"></pre>
                     <h4>Note: re-enter ansible password when prompted for passphrase by ssh-agent</h4>
                     <h3>Verify that Ansible is working</h3>
                     <pre>ansible localhost -m ping</pre>
@@ -82,5 +82,10 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            var connection = 'ssh ansible@';
+            connection += location.hostname;
+            document.getElementById("ssh-connection").innerHTML= connection;
+        </script>
     </body>
 </html>
