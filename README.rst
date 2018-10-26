@@ -9,9 +9,8 @@ downtime rolling updates.
 
 This appliance includes all the standard features in `TurnKey Core`_, and on top of that:
 
-- Stable release of Ansible 2.5.9.
+- Stable release of Ansible installed via pip.
 - WinRM support for managing Windows hosts.
-- Ansible installed via pip.
 - Sudo support for the ansible user.
 - SSL support out of the box.
 - Webmin modules for managing and configuring server.
