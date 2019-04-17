@@ -6,10 +6,10 @@ ADMIN_PASS=turnkey
 HTDOCS=/var/www/ansible/htdocs
 
 # install ansible and deps (inc Windows support)
-easy_install pip
-python -m pip install --upgrade --force setuptools
-pip install 'ansible==2.5.9'
-pip install --upgrade 'pywinrm>=0.1.1'
+easy_install3 pip
+python3 -m pip install --upgrade --force setuptools
+pip3 install 'ansible==2.5.9'
+pip3 install --upgrade 'pywinrm>=0.1.1'
 
 # create admins group, ansible user and sudo privs
 addgroup --system admins
