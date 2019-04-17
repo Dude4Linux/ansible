@@ -10,6 +10,7 @@ easy_install3 pip
 python3 -m pip install --upgrade --force setuptools
 pip3 install 'ansible==2.5.9'
 pip3 install --upgrade 'pywinrm>=0.1.1'
+pip3 install boto3
 
 # create admins group, ansible user and sudo privs
 addgroup --system admins
