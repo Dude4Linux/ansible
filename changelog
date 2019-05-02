@@ -1,3 +1,16 @@
+turnkey-ansible-15.1 (1) turnkey; urgency=low
+
+  * Update Ansible to latest upstream version - 2.7.10.
+
+  * Switch to Python3 build of Ansible (previous releases used py2 build) -
+    closes #1300.
+    [ Stefan Davis ]
+
+  * Include boto3 (AWS python library - python3 version) OOTB - closes #1301.
+    [ Stefan Davis ]
+
+ -- Jeremy Davis <jeremy@turnkeylinux.org>  Thu, 02 May 2019 14:53:27 +1000
+
 turnkey-ansible-15.0 (1) turnkey; urgency=low
 
   * Ansible version 2.5.9
