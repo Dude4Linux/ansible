@@ -10,7 +10,8 @@ make
 python3-dev
 libffi-dev
 libssl-dev
-python3-apt          /* allows ansible to manage apt packages */
+python3-apt         /* allows ansible to manage apt packages */
+python3-pyfits      /* installing this works around a bug in python3.5 */
 sudo                /* required to give ansible user root privileges */
 sshpass             /* required by ansible to script password entry */
 keychain            /* manages ssh-agent keys for ansible */
