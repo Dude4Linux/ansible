@@ -48,7 +48,7 @@ def main():
         facts = rc.split("-")
 
         #Get the version number. should be the only number in the facts list
-        ver_list = filter(is_number, facts)
+        ver_list = list(filter(is_number, facts))
         if len(ver_list) == 1:
             ver_index = facts.index(ver_list[0])
         fact_version = ""
