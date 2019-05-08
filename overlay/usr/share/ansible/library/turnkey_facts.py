@@ -37,7 +37,7 @@ def main():
         )
 
     try:
-        rc = subprocess.check_output(["turnkey-version"]).rstrip()
+        rc = subprocess.check_output(["turnkey-version"]).decode('utf8').rstrip()
         turnkey_box = True
     except:
         #could uncomment this line for testing if needed.
